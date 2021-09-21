@@ -138,7 +138,7 @@ main {
   margin: 0 auto;
   margin-bottom: 2rem;
   padding: 1rem 1.5rem;
-  background-color: rgba(246, 87, 87, 0.781);
+  background-color: rgba(255, 108, 108, 0.465);
   box-shadow: 3px 6px rgba(68, 28, 28, 0.596);
   border-radius: 1rem;
 }
@@ -150,4 +150,24 @@ main {
 .icon {
   width: 8rem;
   height: auto;
+}
+.start-message {
+  color: aliceblue;
+  font-size: 1.6rem;
+  font-weight: 600;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.137);
+}
+
+.loader {
+  height: 5rem;
+  opacity: 0.8;
+  margin: 0 auto;
+  display: block;
+  margin-top: 2rem;
 }

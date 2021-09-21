@@ -3,6 +3,7 @@ import React, { KeyboardEvent, useState } from "react";
 import { weatherAPI } from "./api/api";
 import "./App.css";
 import Input from "./UI/Input";
+import loader from "./assets/images/circles.svg";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -66,7 +67,12 @@ function App() {
             </div>
           </>
         ) : (
-          ""
+          <div>
+            <div className="start-message">
+              Enter city name and get current weather.
+            </div>
+            <img className="loader" src={loader} alt="" />
+          </div>
         )}
       </main>
     </div>
