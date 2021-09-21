@@ -2,7 +2,7 @@ import axios from "axios";
 import { config } from "./../config";
 let key = config.MY_KEY;
 const api = {
-  baseURL: "http://api.openweathermap.org/data/2.5/",
+  baseURL: "https://api.openweathermap.org/data/2.5/",
 };
 export const weatherAPI = (query: string) => {
   return axios.get<WeatherResponseType>(
