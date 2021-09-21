@@ -24,6 +24,18 @@ function App() {
         });
     }
   };
+  const searchHandler = () => {
+    weatherAPI(query)
+      .then((res) => {
+        setWeather(res.data);
+        setQuery("");
+        setError("");
+      })
+      .catch((err) => {
+        setError("There is no such city. Please, try again.");
+        setQuery("");
+      });
+  };
   const date = moment().format("dddd, MMMM Do, YYYY");
 
   return (
@@ -46,7 +58,7 @@ function App() {
             value={query}
             onKeyPress={search}
           />
-          <button>search</button>
+          <button onClick={searchHandler}>search</button>
         </div>
         {error && <div className="error">{error}</div>}
         {typeof weather.main !== "undefined" ? (
