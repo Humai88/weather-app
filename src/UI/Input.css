@@ -1,0 +1,28 @@
+.search-input {
+  display: block;
+  width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 0 1rem;
+  margin-top: -2rem;
+  font-family: "Montserrat" !important;
+  font-size: 1rem;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  color: #313131;
+  transition: 0.4s ease;
+}
+@media only screen and (max-width: 600px) {
+  .search-input {
+    width: 13rem;
+  }
+}
+@media only screen and (max-width: 992px) and (min-device-width: 601px) {
+  .search-input {
+    width: 35rem;
+  }
+}
