@@ -1,11 +1,12 @@
 import axios from "axios";
+import { config } from "./../config";
+let key = config.MY_KEY;
 const api = {
-  key: "afe1289e31494c8586cf58e9e25eed17",
   baseURL: "http://api.openweathermap.org/data/2.5/",
 };
 export const weatherAPI = (query: string) => {
   return axios.get<WeatherResponseType>(
-    `${api.baseURL}weather?q=${query}&units=metric&appid=${api.key}`
+    `${api.baseURL}weather?q=${query}&units=metric&appid=${key}`
   );
 };
 
