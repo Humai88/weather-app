@@ -7,6 +7,7 @@ import Input from "./UI/Input";
 function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState<any>({});
+  const [error, setError] = useState("");
 
   const search = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -14,19 +15,16 @@ function App() {
         .then((res) => {
           setWeather(res.data);
           setQuery("");
-          console.log(res.data);
+          setError("");
         })
         .catch((err) => {
-          throw new Error();
+          setError("There is no such city. Please, try again.");
+          setQuery("");
         });
     }
   };
   const date = moment().format("dddd, MMMM Do, YYYY");
 
-  const api = {
-    key: "afe1289e31494c8586cf58e9e25eed17",
-    base: "http://api.openweathermap.org/data/2.5/",
-  };
   return (
     <div
       className={
@@ -49,6 +47,7 @@ function App() {
           />
           <button>search</button>
         </div>
+        {error && <div className="error">{error}</div>}
         {typeof weather.main !== "undefined" ? (
           <>
             <div className="location-box">
@@ -60,6 +59,10 @@ function App() {
             <div className="weather-box">
               <div className="temp">{Math.round(weather.main.temp)}°C</div>
               <div className="weather">{weather.weather[0].main}</div>
+              <img
+                className="icon"
+                src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              ></img>
             </div>
           </>
         ) : (
