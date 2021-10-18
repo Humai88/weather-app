@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/weather-app/static/css/main.3fac66e5.chunk.css",
+    "main.css": "/weather-app/static/css/main.b017e68f.chunk.css",
     "main.js": "/weather-app/static/js/main.84a3d0fa.chunk.js",
     "main.js.map": "/weather-app/static/js/main.84a3d0fa.chunk.js.map",
     "runtime-main.js": "/weather-app/static/js/runtime-main.76754041.js",
@@ -8,15 +8,15 @@
     "static/js/2.c4333221.chunk.js": "/weather-app/static/js/2.c4333221.chunk.js",
     "static/js/2.c4333221.chunk.js.map": "/weather-app/static/js/2.c4333221.chunk.js.map",
     "index.html": "/weather-app/index.html",
-    "static/css/main.3fac66e5.chunk.css.map": "/weather-app/static/css/main.3fac66e5.chunk.css.map",
+    "static/css/main.b017e68f.chunk.css.map": "/weather-app/static/css/main.b017e68f.chunk.css.map",
     "static/js/2.c4333221.chunk.js.LICENSE.txt": "/weather-app/static/js/2.c4333221.chunk.js.LICENSE.txt",
     "static/media/Half-Moon-Loading.0771d9af.svg": "/weather-app/static/media/Half-Moon-Loading.0771d9af.svg",
-    "static/media/App.css": "/weather-app/static/media/jerry-zhang-SJGiS1JzUCc-unsplash.a73fc868.jpg"
+    "static/media/App.css": "/weather-app/static/media/jerry-zhang-SJGiS1JzUCc-unsplash.eff13f74.webp"
   },
   "entrypoints": [
     "static/js/runtime-main.76754041.js",
     "static/js/2.c4333221.chunk.js",
-    "static/css/main.3fac66e5.chunk.css",
+    "static/css/main.b017e68f.chunk.css",
     "static/js/main.84a3d0fa.chunk.js"
   ]
 }
