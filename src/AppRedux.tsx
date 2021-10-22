@@ -23,22 +23,7 @@ function App() {
   const [message, setMessage] = useState("");
   const [valid, setValid] = useState(true);
 
-  const search = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      if (query.length > 0) {
-        dispatch(getCurrentWeatherTC(query));
-        dispatch(getWeatherForecastTC(query));
-        setValid(true);
-        setTimeout(() => {
-          dispatch(catchErrorAC(""));
-        }, 3000);
-      } else {
-        setValid(false);
-        setMessage("Please enter the city name");
-      }
-    }
-  };
-  const searchHandler = () => {
+  const getWeather = () => {
     if (query.length > 0) {
       dispatch(getCurrentWeatherTC(query));
       dispatch(getWeatherForecastTC(query));
@@ -48,8 +33,16 @@ function App() {
       }, 3000);
     } else {
       setValid(false);
-      setMessage("Please enter the city name");
+      setMessage("Please, enter the city name.");
     }
+  };
+  const search = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      getWeather();
+    }
+  };
+  const searchHandler = () => {
+    getWeather();
   };
 
   const date = moment().format("dddd, MMMM Do");
