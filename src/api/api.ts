@@ -70,13 +70,13 @@ type CoordType = {
   lon: number;
   lat: number;
 };
-type WeatherType = {
+export type WeatherType = {
   id: number;
   main: string;
   description: string;
   icon: string;
 };
-type MainType = {
+export type MainType = {
   temp: number;
   feels_like: number;
   temp_min: number;
@@ -86,7 +86,7 @@ type MainType = {
   sea_level: number;
   grnd_level: number;
 };
-type WindType = {
+export type WindType = {
   speed: number;
   deg: number;
   gust: number;
