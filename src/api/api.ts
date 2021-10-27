@@ -4,15 +4,16 @@ let key = config.MY_KEY;
 const api = {
   baseURL: "https://api.openweathermap.org/data/2.5/",
 };
+
 export const weatherAPI = {
-  getCurrentWeather(query: string) {
+  getCurrentWeather(query: string, lat: number | null, lon: number | null) {
     return axios.get<WeatherResponseType>(
-      `${api.baseURL}weather?q=${query}&units=metric&appid=${key}`
+      `${api.baseURL}weather?q=${query}&lat=${lat}&lon=${lon}&units=metric&appid=${key}`
     );
   },
-  getWeatherForecast(query: string) {
+  getWeatherForecast(query: string, lat: number | null, lon: number | null) {
     return axios.get<ForecastResponseType>(
-      `${api.baseURL}forecast?q=${query}&units=metric&appid=${key}`
+      `${api.baseURL}forecast?q=${query}&lat=${lat}&lon=${lon}&units=metric&appid=${key}`
     );
   },
 };

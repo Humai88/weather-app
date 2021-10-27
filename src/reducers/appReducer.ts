@@ -61,11 +61,11 @@ export const appReducer = (
 // Thunks
 
 export const getCurrentWeatherTC =
-  (query: string): ThunkType =>
+  (query: string, lat: number | null, lon: number | null): ThunkType =>
   (dispatch) => {
     dispatch(setAppStatusAC("loading"));
     weatherAPI
-      .getCurrentWeather(query)
+      .getCurrentWeather(query, lat, lon)
       .then((res) => {
         dispatch(getCurrentWeatherAC(res.data));
       })
@@ -77,11 +77,11 @@ export const getCurrentWeatherTC =
       });
   };
 export const getWeatherForecastTC =
-  (query: string): ThunkType =>
+  (query: string, lat: number | null, lon: number | null): ThunkType =>
   (dispatch) => {
     dispatch(setAppStatusAC("loading"));
     weatherAPI
-      .getWeatherForecast(query)
+      .getWeatherForecast(query, lat, lon)
       .then((res) => {
         dispatch(getForecastAC(res.data.list));
       })

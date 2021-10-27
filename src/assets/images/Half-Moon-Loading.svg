@@ -14,7 +14,7 @@
                     type="rotate"
                     from="0 75 75"
                     to="360 75 75"
-                    dur="2s"
+                    dur="1s"
                     repeatCount="indefinite"/>
 </path>
 <radialGradient id="SVGID_2_" cx="80.4228" cy="15.0403" r="33.0751" gradientTransform="matrix(-1 0 0 -1 155.4228 110.0805)" gradientUnits="userSpaceOnUse">
@@ -29,7 +29,7 @@
                     type="rotate"
                     from="0 75 75"
                     to="-360 75 75"
-                    dur="2s"
+                    dur="1s"
                     repeatCount="indefinite"/>
 </path>
 <radialGradient id="SVGID_3_" cx="75" cy="75" r="20.2532" gradientUnits="userSpaceOnUse">
@@ -44,7 +44,7 @@
                     type="rotate"
                     from="0 75 75"
                     to="360 75 75"
-                    dur="2s"
+                    dur="1s"
                     repeatCount="indefinite"/>
 </path>
 </svg>
