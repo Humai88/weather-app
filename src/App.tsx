@@ -38,14 +38,14 @@ function App() {
         dispatch(getWeatherForecastTC("", lat, long));
         console.log(lat, long);
       },
-      function () {
+      function (error) {
         if (!ref.current) {
           return;
         }
-        console.log("nothing");
+        console.log(error);
 
         ref.current.innerHTML =
-          "Geolocation is not supported by your browser. Please, enter the city name.";
+          "Please, enter the city name to get weather forecast.";
       }
     );
 
