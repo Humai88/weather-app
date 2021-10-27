@@ -29,35 +29,37 @@ function App() {
     setTimeout(() => setSpinner(false), 1500);
   }, []);
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      let lat = position.coords.latitude;
-      let long = position.coords.longitude;
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
 
-      dispatch(getCurrentWeatherTC("", lat, long));
-      dispatch(getWeatherForecastTC("", lat, long));
-      console.log(lat, long);
-    });
-    function error() {
-      if (!ref.current) {
-        return;
+        dispatch(getCurrentWeatherTC("", lat, long));
+        dispatch(getWeatherForecastTC("", lat, long));
+        console.log(lat, long);
+      },
+      function () {
+        if (!ref.current) {
+          return;
+        }
+        ref.current.innerHTML =
+          "Geolocation is not supported by your browser. Please, enter the city name.";
       }
-      ref!.current.innerHTML =
-        "Unable to retrieve your location. Please, enter the city name.";
-    }
+    );
 
-    if (!navigator.geolocation) {
-      if (!ref.current) {
-        return;
-      }
-      ref.current.innerHTML =
-        "Geolocation is not supported by your browser. Please, enter the city name.";
-    } else {
-      if (!ref.current) {
-        return;
-      }
-      ref.current.innerHTML = "Locating…";
-      navigator.geolocation.getCurrentPosition(error);
-    }
+    // if (!navigator.geolocation) {
+    //   if (!ref.current) {
+    //     return;
+    //   }
+    //   ref.current.innerHTML =
+    //     "Geolocation is not supported by your browser. Please, enter the city name.";
+    // } else {
+    //   if (!ref.current) {
+    //     return;
+    //   }
+    //   ref.current.innerHTML = "Locating…";
+
+    // }
   }, []);
 
   const getWeather = () => {
