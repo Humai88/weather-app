@@ -12,7 +12,6 @@ import {
 } from "./reducers/appReducer";
 import { Preloader } from "./components/Preloader/Preloader";
 import { catchErrorAC } from "./actions/actions";
-import { Spinner } from "./components/Spinner/Spinner";
 
 function App() {
   const weather = useSelector((state: AppStore) => state.weather);
@@ -23,11 +22,8 @@ function App() {
   const [query, setQuery] = useState("");
   const [message, setMessage] = useState("");
   const [valid, setValid] = useState(true);
-  const [spinner, setSpinner] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    setTimeout(() => setSpinner(false), 1500);
-  }, []);
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       function (position) {
@@ -38,30 +34,15 @@ function App() {
         dispatch(getWeatherForecastTC("", lat, long));
         console.log(lat, long);
       },
-      function (error) {
+      function () {
         if (!ref.current) {
           return;
         }
-        console.log(error);
 
         ref.current.innerHTML =
-          "Please, enter the city name to get weather forecast.";
+          "Please, enter the city name to get current weather and 5-day weather forecast.";
       }
     );
-
-    // if (!navigator.geolocation) {
-    //   if (!ref.current) {
-    //     return;
-    //   }
-    //   ref.current.innerHTML =
-    //     "Geolocation is not supported by your browser. Please, enter the city name.";
-    // } else {
-    //   if (!ref.current) {
-    //     return;
-    //   }
-    //   ref.current.innerHTML = "Locating…";
-
-    // }
   }, []);
 
   const getWeather = () => {
@@ -88,7 +69,7 @@ function App() {
 
   const date = moment().format("dddd, MMMM Do");
 
-  return !spinner ? (
+  return (
     <div className="app-wrapper">
       {status === "loading" && <Preloader />}
 
@@ -181,8 +162,6 @@ function App() {
         )}
       </main>
     </div>
-  ) : (
-    <Spinner />
   );
 }
 
