@@ -42,6 +42,8 @@ function App() {
         if (!ref.current) {
           return;
         }
+        console.log("nothing");
+
         ref.current.innerHTML =
           "Geolocation is not supported by your browser. Please, enter the city name.";
       }
