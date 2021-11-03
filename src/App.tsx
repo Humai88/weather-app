@@ -71,96 +71,100 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      {status === "loading" && <Preloader />}
+      {status === "loading" ? (
+        <Preloader />
+      ) : (
+        <main>
+          <div className="search-box">
+            <Input
+              type="text"
+              className="search-input"
+              placeholder="Search..."
+              onChange={(e) => {
+                setQuery(e.currentTarget.value);
+              }}
+              value={query}
+              onKeyPress={search}
+            />
 
-      <main>
-        <div className="search-box">
-          <Input
-            type="text"
-            className="search-input"
-            placeholder="Search..."
-            onChange={(e) => {
-              setQuery(e.currentTarget.value);
-            }}
-            value={query}
-            onKeyPress={search}
-          />
-
-          <button onClick={searchHandler}>search</button>
-        </div>
-        <div
-          className="validation"
-          style={!valid ? { display: "block" } : { display: "none" }}
-        >
-          {message}
-        </div>
-        {error && <div className="error">{error}</div>}
-        {weather ? (
-          <>
-            <div className="location-box">
-              <div className="location">
-                {weather.name}, {weather.sys.country}
-              </div>
-              <div className="date">{date}</div>
-            </div>
-            <div className="main-wrapper">
-              <div className="weather-main">
-                <img
-                  className="icon-main"
-                  src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                ></img>
-                <div>
-                  <div className="temp-main">
-                    {Math.round(weather.main.temp)}°C
-                  </div>
-                  <div className="weather-main">{weather.weather[0].main}</div>
-                </div>
-              </div>
-
-              <div className="descr-main">
-                <div>
-                  {Math.round(weather.wind.speed)}m/s
-                  <br />
-                  Wind
-                </div>
-                <div>
-                  {weather.main.humidity}%
-                  <br />
-                  Humidity
-                </div>
-                <div>
-                  {Math.round(weather.main.temp_max)}°C
-                  <br />
-                  High
-                </div>
-                <div>
-                  {Math.round(weather.main.temp_min)}°C
-                  <br />
-                  Low
-                </div>
-              </div>
-            </div>
-            <div className="date">Forecast</div>
-            <div className="data-wrapper">
-              {forecast &&
-                forecast.map((e) => {
-                  return (
-                    <WeatherBox
-                      key={e.dt}
-                      time={editTimeString(e.dt_txt)}
-                      icon={e.weather[0].icon}
-                      temp={e.main.temp}
-                    />
-                  );
-                })}
-            </div>
-          </>
-        ) : (
-          <div>
-            <div ref={ref} className="start-message"></div>
+            <button onClick={searchHandler}>search</button>
           </div>
-        )}
-      </main>
+          <div
+            className="validation"
+            style={!valid ? { display: "block" } : { display: "none" }}
+          >
+            {message}
+          </div>
+          {error && <div className="error">{error}</div>}
+          {weather ? (
+            <>
+              <div className="location-box">
+                <div className="location">
+                  {weather.name}, {weather.sys.country}
+                </div>
+                <div className="date">{date}</div>
+              </div>
+              <div className="main-wrapper">
+                <div className="weather-main">
+                  <img
+                    className="icon-main"
+                    src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                  ></img>
+                  <div>
+                    <div className="temp-main">
+                      {Math.round(weather.main.temp)}°C
+                    </div>
+                    <div className="weather-main">
+                      {weather.weather[0].main}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="descr-main">
+                  <div>
+                    {Math.round(weather.wind.speed)}m/s
+                    <br />
+                    Wind
+                  </div>
+                  <div>
+                    {weather.main.humidity}%
+                    <br />
+                    Humidity
+                  </div>
+                  <div>
+                    {Math.round(weather.main.temp_max)}°C
+                    <br />
+                    High
+                  </div>
+                  <div>
+                    {Math.round(weather.main.temp_min)}°C
+                    <br />
+                    Low
+                  </div>
+                </div>
+              </div>
+              <div className="date">Forecast</div>
+              <div className="data-wrapper">
+                {forecast &&
+                  forecast.map((e) => {
+                    return (
+                      <WeatherBox
+                        key={e.dt}
+                        time={editTimeString(e.dt_txt)}
+                        icon={e.weather[0].icon}
+                        temp={e.main.temp}
+                      />
+                    );
+                  })}
+              </div>
+            </>
+          ) : (
+            <div>
+              <div ref={ref} className="start-message"></div>
+            </div>
+          )}
+        </main>
+      )}
     </div>
   );
 }
